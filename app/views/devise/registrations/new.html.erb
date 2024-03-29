@@ -1,0 +1,23 @@
+<div class="login">
+  <div class="main">
+    <div class="container a-container" id="a-container">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form", id: "b-form" }) do |f| %>
+        <h2 class="form_title title">Create Account</h2>
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__input" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form__input" %>
+        <%= f.submit "SIGN UP", class: "form__button button submit" %>
+      <% end %>
+    </div>
+    <div class="switch" id="switch-cnt">
+      <div class="switch__circle"></div>
+      <div class="switch__circle switch__circle--t"></div>
+      <div class="switch__container" id="switch-c1">
+        <h2 class="switch__title title">Welcome Back !</h2>
+        <%= link_to(new_user_session_path) do %>
+        <button class="switch__button button switch-btn">SIGN IN</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
