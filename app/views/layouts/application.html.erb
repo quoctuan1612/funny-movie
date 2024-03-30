@@ -19,8 +19,9 @@
             <span class="d-flex align-items-center me-5">
               Welcome <span class="fw-bolder ms-1"><%= "#{current_user.email}" %></span>
             </span>
+            <%= link_to "Share a movie", new_video_path, class: "btn btn-outline-success me-3" %>
             <%= form_tag destroy_user_session_path, method: :delete do %>
-              <%= submit_tag "SIGN OUT", class: "btn btn-outline-success me-3" %>
+              <%= submit_tag "Sign out", class: "btn btn-outline-success me-3" %>
             <% end %>
           </div>
         </div>

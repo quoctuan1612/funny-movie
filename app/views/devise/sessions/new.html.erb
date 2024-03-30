@@ -3,9 +3,7 @@
     <div class="container b-container" id="b-container">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form", id: "b-form" }) do |f| %>
         <h2 class="form_title title">Sign in to Website</h2>
-        <% flash.each do |key, value| %>
-          <%= content_tag :div, value, class: "flash #{key}" %>
-        <% end %>
+        <%= render "shared/flash_message" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form__input" %>
         <%= f.password_field :password, autocomplete: "current-password", class: "form__input" %>
         <%= f.submit "SIGN IN", class: "form__button button submit" %>

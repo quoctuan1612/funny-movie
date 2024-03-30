@@ -1,0 +1,22 @@
+.container {
+  &.home {
+    position: absolute;
+    top: 20%;
+    .alert {
+      position: absolute !important;
+      top: 10%;
+      right: 5%;
+    }
+
+    p {
+      margin: 0;
+      &.title-video {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 5;
+        -webkit-box-orient: vertical;
+        cursor: pointer;
+      }
+    }
+  }
+}
