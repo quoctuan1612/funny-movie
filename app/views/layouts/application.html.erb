@@ -26,7 +26,14 @@
           </div>
         </div>
       </nav>
+      <div id="notification"></div>
+
       <%= yield %>
+
+      <%= content_tag(:div, "", data: {
+        controller: "notification",
+        id: current_user.id,
+      }) %>
     <% else %>
       <%= yield %>
     <% end %>

@@ -76,3 +76,4 @@ end
 gem "devise"
 gem "sassc-rails"
 gem "rest-client"
+gem "redis"
