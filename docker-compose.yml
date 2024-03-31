@@ -1,5 +1,5 @@
 services:
-  app:
+  app: &app
     build:
       context: .
       dockerfile: Dockerfile
@@ -52,3 +52,15 @@ services:
       - db
     ports:
       - 8081:8080
+
+  rspec:
+    <<: *app
+    command: >
+      bash -c "bundle exec rspec"
+    ports:
+      - "3002:3002"
+    environment:
+      RAILS_ENV: test
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: db
