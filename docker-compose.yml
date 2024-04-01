@@ -54,11 +54,25 @@ services:
       - 8081:8080
 
   unit-tests:
+    restart: "no"
     <<: *app
     command: >
-      bash -c "bundle exec rspec"
+      bash -c "bundle exec rspec spec/models && bundle exec rspec spec/requests"
     ports:
       - "3002:3002"
+    environment:
+      RAILS_ENV: test
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: db
+
+  integration-tests:
+    <<: *app
+    restart: "no"
+    command: >
+      bash -c "rails db:drop db:create db:migrate && bundle exec rspec spec/features"
+    ports:
+      - "3003:3003"
     environment:
       RAILS_ENV: test
       POSTGRES_USER: user
