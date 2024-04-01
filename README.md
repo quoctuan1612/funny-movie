@@ -64,8 +64,34 @@ This code is written in Ruby and utilizes the Ruby on Rails framework. It requir
    ```shell
    localhost:3001
 ## Usage
+
+### Here's a step-by-step guide on how to sign up and sign in to the application:
+
+#### Sign Up
+1. Navigate to the sign-up page by clicking on "Sign Up".
+2. On the sign-up page, enter your email and password in the fields.
+3. Click on the "Sign Up" button to create your account.
+4. After signing up, you will be automatically logged in and redirected to the home page.
+
+#### Sign In
+1. Navigate to the sign-in page by clicking on the "Sign In".
+2. On the sign-in page, enter your email and password in the fields.
+3. Click on the "Sign In" button to log in.
+4. After signing in, you will be redirected to the home page where you can start sharing and viewing videos.
+
+### Here's a step-by-step guide on how to share a movie in the application:
+1. After logging in, navigate to the video upload page by clicking on the "Share a movie" link on the navigation bar.
+2. On the share page, enter the YouTube URL in the URL field.
+3. After entering the YouTube URL, click on the "Share" button to share the video. All users immediately are notified of the video that you shared
+
+### Here's a step-by-step guide on how to watch a movie in the application:
+1. After logging in, you will be redirected to the home page where all shared movies are listed.
+2. Browse through the list of movies. Each movie has a thumbnail, title, and the name of the user who shared it.
+3. Click on the thumbnail of the movie you want to watch.
+4. If you want to watch another movie, you can click on the other video.
+
 ## Troubleshooting
-### Getting error ```/usr/bin/env: 'ruby\r': no such file or directory``` in Windows
+### Getting error ```/usr/bin/env: 'ruby\r': no such file or directory``` in Windows when build docker compose
 
 1. If you already have checked out the code, the files are already indexed. After changing your Git settings, say by running:
    ```shell
