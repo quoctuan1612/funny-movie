@@ -53,7 +53,7 @@ services:
     ports:
       - 8081:8080
 
-  rspec:
+  unit-tests:
     <<: *app
     command: >
       bash -c "bundle exec rspec"
