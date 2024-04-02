@@ -3,12 +3,7 @@ class VideosController < ApplicationController
 
   def create
     id = get_video_id
-    video = Video.find_or_initialize_by(video_id: id)
-
-    if video.persisted?
-      flash[:danger] = "Video was shared!"
-      return redirect_to new_video_path
-    end
+    video = Video.new(video_id: id)
 
     video_info = get_video_info(id)
 
@@ -24,7 +19,7 @@ class VideosController < ApplicationController
     if video.save
       redirect_to root_path
     else
-      flash[:danger] = "Save failed!"
+      flash[:danger] = video.errors.full_messages.join(", ")
       redirect_to new_video_path
     end
   end
