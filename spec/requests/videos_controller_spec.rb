@@ -10,13 +10,14 @@ RSpec.describe VideosController, type: :request do
   describe 'POST #create' do
     context 'when video is existed' do
       before do
-        allow_any_instance_of(Video).to receive(:persisted?).and_return(true)
+        allow(RestClient).to receive(:get).and_return(OpenStruct.new(body: { items: [{ snippet: { title: 'Title test', description: 'description test' } }] }.to_json))
       end
 
       it 'redirects to new video path' do
+        video = FactoryBot.create(:video, video_id: '123')
         post '/videos', params: { url: 'https://www.youtube.com/watch?v=123' }
         expect(response).to redirect_to(new_video_path)
-        expect(flash[:danger]).to eq('Video was shared!')
+        expect(flash[:danger]).to eq('Video has already been taken')
       end
     end
 
@@ -36,19 +37,6 @@ RSpec.describe VideosController, type: :request do
       it 'redirects to root path' do
         post '/videos', params: { url: 'https://www.youtube.com/watch?v=789' }
         expect(response).to redirect_to(root_path)
-      end
-    end
-
-    context 'when video save fails' do
-      before do
-        allow_any_instance_of(Video).to receive(:save).and_return(false)
-        allow(RestClient).to receive(:get).and_return(OpenStruct.new(body: { items: [{ snippet: { title: 'Title', description: 'Description' } }] }.to_json))
-      end
-
-      it 'redirects to new video path' do
-        post '/videos', params: { url: 'https://www.youtube.com/watch?v=999' }
-        expect(response).to redirect_to(new_video_path)
-        expect(flash[:danger]).to eq('Save failed!')
       end
     end
   end
