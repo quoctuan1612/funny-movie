@@ -46,20 +46,20 @@ This code is written in Ruby and utilizes the Ruby on Rails framework. It requir
 ## Database Setup
 1. Create database
    ```shell
-   docker-compose run --rm app bundle exec rails db:create
+   docker compose run --rm app bundle exec rails db:create
 2. Migration
    ```shell
-   docker-compose run --rm app bundle exec rails db:migrate
+   docker compose run --rm app bundle exec rails db:migrate
 ## Running the Application
 1. Run unit test
    ```shell
-   docker-compose up unit-tests
+   docker compose up unit-tests
 2. Run integration test
    ```shell
-   docker-compose up integration-tests
+   docker compose up integration-tests
 3. Start server
    ```shell
-   docker-compose up -d app
+   docker compose up -d app
 4. Access the application in a web browser
    ```shell
    localhost:3001
