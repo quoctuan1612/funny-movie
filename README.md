@@ -42,7 +42,7 @@ This code is written in Ruby and utilizes the Ruby on Rails framework. It requir
    cd funny-movie
 4. Build and run the Docker containers with Docker Compose
    ```shell
-   docker-compose build
+   docker compose build
 ## Database Setup
 1. Create database
    ```shell
